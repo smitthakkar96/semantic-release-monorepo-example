@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: node:14.17-alpine
+      image: node:16.15-alpine
 
     steps:
     - uses: actions/checkout@v1
 
     - name: Install dependencies
-      run: apk add git  && cd service && npm ci && cd .. && npm install -D semantic-release-monorepo
+      run: apk add git  && npm ci
 
     - name: Launch semantic for service
       run: cd service && for moduleName in service logging-index; do cd ../${moduleName} && npx semantic-release -e semantic-release-monorepo --tag-format ${moduleName}-\${version}; done;

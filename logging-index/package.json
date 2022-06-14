@@ -4,31 +4,39 @@
     "description": "Subpackage",
     "repository": "https://github.com/usmansharifkhan/semantic-release-monorepo-example",
     "release": {
-      "plugins": [
-        "@semantic-release/commit-analyzer",
-        "@semantic-release/release-notes-generator",
-        [
-          "semantic-release-plugin-update-version-in-files", 
-          {
-            "files": [
-              ".version"
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            [
+                "semantic-release-plugin-update-version-in-files",
+                {
+                    "files": [
+                        ".version"
+                    ],
+                    "placeholder": "\\d+.\\d+\\.\\d+"
+                }
             ],
-            "placeholder": "\\d+.\\d+\\.\\d+"
-          }
-        ],
-        [
-          "@semantic-release/git",
-          {
-            "assets": ["docs/CHANGELOG.md", ".version"]
-          }
-        ],
-        "@semantic-release/github"
-      ]
+            [
+                "@semantic-release/git",
+                {
+                    "assets": [
+                        "docs/CHANGELOG.md",
+                        ".version"
+                    ]
+                }
+            ],
+            "@semantic-release/github"
+        ]
     },
     "scripts": {
-      "semantic-release": "semantic-release"
+        "semantic-release": "semantic-release"
     },
     "devDependencies": {
-      "semantic-release": "^15.13.18"
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^8.0.4",
+        "semantic-release": "^19.0.3",
+        "semantic-release-monorepo": "^7.0.5",
+        "semantic-release-plugin-update-version-in-files": "^1.1.0"
     }
-  }
+}
