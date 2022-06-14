@@ -4,6 +4,7 @@
     "description": "Subpackage",
     "repository": "https://github.com/usmansharifkhan/semantic-release-monorepo-example",
     "release": {
+        "tagFormat": "service-${version}",
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
